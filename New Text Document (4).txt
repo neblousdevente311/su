@@ -1,0 +1,226 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To My Love</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Open+Sans:wght@300;400;600&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #fffbf0;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 40px;
+            text-align: center;
+        }
+        .header {
+            font-family: 'Great Vibes', cursive;
+            color: #d9534f;
+            font-size: 4em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        .section {
+            margin-bottom: 40px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.1);
+        }
+        .surprise-button, .poem-button {
+            background-color: #d9534f;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            margin: 10px;
+            font-family: 'Raleway', sans-serif;
+        }
+        .surprise-button:hover, .poem-button:hover {
+            background-color: #c9302c;
+            transform: scale(1.05);
+        }
+        .hidden-message, .poem {
+            display: none;
+            font-size: 1.5em;
+            color: #d9534f;
+            margin-top: 20px;
+            line-height: 1.6;
+        }
+        .photo-gallery img {
+            width: 120px;
+            height: 120px;
+            margin: 5px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .photo-gallery img:hover {
+            transform: scale(1.2);
+        }
+        .interactive-heart {
+            font-size: 2em;
+            color: #d9534f;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .interactive-heart:hover {
+            transform: rotate(360deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="header">To My Love</h1>
+
+        <!-- Interactive Surprise Message Section -->
+        <div class="section">
+            <h2>Click for a Poetic Surprise</h2>
+            <button class="surprise-button" onclick="showMessage()">Reveal Message</button>
+            <div class="hidden-message" id="hiddenMessage">
+                🌹 In the garden of my heart, you bloom like a rare rose, 
+                casting a fragrance that makes every moment sweet. 
+                Your smile is the dawn of my day, and your laughter the melody of my soul. 
+                You are my dream realized, my every heartbeat's wish. 🌹
+            </div>
+        </div>
+
+        <!-- Photo Gallery Section -->
+        <div class="section">
+            <h2>Our Beautiful Moments</h2>
+            <div class="photo-gallery">
+                <img src="photo1.jpg" alt="Moment 1" onclick="showPhoto('photo1.jpg')">
+                <img src="photo2.jpg" alt="Moment 2" onclick="showPhoto('photo2.jpg')">
+                <img src="photo3.jpg" alt="Moment 3" onclick="showPhoto('photo3.jpg')">
+                <!-- Add more photos as needed -->
+            </div>
+        </div>
+
+        <!-- Interactive Poems Section -->
+        <div class="section">
+            <h2>How Much Do I Cherish You?</h2>
+            <p>Select a question to see how much you mean to me:</p>
+            <button class="poem-button" onclick="showPoem('beauty')">How beautiful are you?</button>
+            <button class="poem-button" onclick="showPoem('want')">How much I want you to be mine?</button>
+            <button class="poem-button" onclick="showPoem('lucky')">How lucky I am to have you?</button>
+            <button class="poem-button" onclick="showPoem('love')">How much I love you?</button>
+            <button class="poem-button" onclick="showPoem('worthy')">How worthy you are?</button>
+            <div class="poem" id="poemDisplay"></div>
+        </div>
+
+        <!-- Music Playlist Section -->
+        <div class="section">
+            <h2>Our Playlist</h2>
+            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/01nHZwmLXMwbmjpNoysfeC?utm_source=generator" width="100%" height="800" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <p>Enjoy our special playlist! 🎶</p>
+        </div>
+
+        <!-- Interactive Heart -->
+        <div class="section">
+            <h2>Tap the Heart</h2>
+            <div class="interactive-heart" onclick="showHeartMessage()">❤️</div>
+            <div class="hidden-message" id="heartMessage">
+                💕 Every beat of my heart sings your name, 
+                and every thought is filled with the warmth of your love. 💕
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to show the hidden message
+        function showMessage() {
+            document.getElementById('hiddenMessage').style.display = 'block';
+        }
+
+        // Function to show poems based on the selected question
+        function showPoem(type) {
+            const poemElement = document.getElementById('poemDisplay');
+            let poem;
+
+            switch(type) {
+                case 'beauty':
+                    poem = `
+                        i hold in my hands
+                        the beauty of a thousand stars
+                        and there you are
+                        glowing more than all
+                        for you are my night
+                        my day
+                        my eternal light
+                    `;
+                    break;
+                case 'want':
+                    poem = `
+                        i crave your presence
+                        as the moon craves the sea
+                        my heart whispers
+                        softly to you
+                        come be mine
+                        now and forever
+                        for you are my everything
+                    `;
+                    break;
+                case 'lucky':
+                    poem = `
+                        i am the luckiest of souls
+                        to have you by my side
+                        in this world
+                        full of wonder and awe
+                        for you are my dream
+                        my reality
+                        my most cherished prize
+                    `;
+                    break;
+                case 'love':
+                    poem = `
+                        my love for you is boundless
+                        like the universe itself
+                        ever expanding
+                        and everlasting
+                        you are the rhythm
+                        to my heart's beat
+                        the reason for my existence
+                    `;
+                    break;
+                case 'worthy':
+                    poem = `
+                        you are a treasure
+                        beyond any measure
+                        more precious than gold
+                        more rare than a gem
+                        you are worthy
+                        of all my love
+                        and so much more
+                    `;
+                    break;
+                default:
+                    poem = '';
+            }
+
+            poemElement.innerHTML = `<pre>${poem}</pre>`;
+            poemElement.style.display = 'block';
+        }
+
+        // Function to show a larger photo
+        function showPhoto(src) {
+            const photoWindow = window.open("", "_blank");
+            photoWindow.document.write(`<img src="${src}" style="width:100%; height:auto;">`);
+        }
+
+        // Function to show the heart message
+        function showHeartMessage() {
+            document.getElementById('heartMessage').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
